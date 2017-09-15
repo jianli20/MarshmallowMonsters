@@ -26,9 +26,9 @@ public class MarshmallowMonster
 	
 	public String toString()
 	{
-		String description = "I am a monster, my name is " + name + ", I have" + eyeCount + "eyes and only" ;
-		description += tentacleAmount +  "tentacles but I have" + armCount + " arms!." + hasBloop + " tells you";
-		description += " if I have a bloop";
+		String description = "I am a monster, my name is " + name + ", I have " + eyeCount + " eyes and only " ;
+		description += tentacleAmount +  " tentacles but I have " + armCount + " arms! " + hasBloop + " tells you ";
+		description += "if I have a bloop";
 		return description;
 	}
 			
@@ -68,6 +68,11 @@ public class MarshmallowMonster
 		public void setEyeCount(int eyeCount)
 		{
 			this.eyeCount = eyeCount;
+		}
+		
+		public void setarmCount(int armCount)
+		{
+			this.armCount = armCount;
 		}
 		
 		public void setTentacleAmount(double tentacleAmount)
