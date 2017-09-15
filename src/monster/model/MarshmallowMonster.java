@@ -15,7 +15,7 @@ public class MarshmallowMonster
 		//initializes everything to 0, false or null.
 	}
 	
-	public MarshmallowMonster(String name, int eyeCount, int arms, int tentacleCount, boolean hasBloop)
+	public MarshmallowMonster(String name, int eyeCount, int arms, double tentacleCount, boolean hasBloop)
 	{
 		this.name = name;
 		this.eyeCount = eyeCount;
@@ -31,4 +31,53 @@ public class MarshmallowMonster
 		description += " if I have a bloop";
 		return description;
 	}
+			
+		
+		public String getName()
+		{
+			return name;
+		}
+		
+		public int getEyeCount()
+		{
+			return eyeCount;
+		
+		}
+		
+		public int getarmCount()
+		{
+			return armCount;
+		}
+		
+		public double getTentacleAmount()
+		{
+			return tentacleAmount;
+		}
+		
+		public boolean hasBloop()
+		{
+			return hasBloop;
+		}
+	
+		public void setName(String name)
+		{
+			this.name = name;
+					
+		}
+		
+		public void setEyeCount(int eyeCount)
+		{
+			this.eyeCount = eyeCount;
+		}
+		
+		public void setTentacleAmount(double tentacleAmount)
+		{
+			this.tentacleAmount = tentacleAmount;
+		}
+		
+		public void setBloop(boolean hasBloop)
+		{
+			this.hasBloop = hasBloop;
+		}
 }
+		
