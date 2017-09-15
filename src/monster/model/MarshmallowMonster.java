@@ -15,12 +15,12 @@ public class MarshmallowMonster
 		//initializes everything to 0, false or null.
 	}
 	
-	public MarshmallowMonster(String name, int eyeCount, int arms, int tenaclecount, boolean hasBloop)
+	public MarshmallowMonster(String name, int eyeCount, int arms, int tentacleCount, boolean hasBloop)
 	{
 		this.name = name;
 		this.eyeCount = eyeCount;
 		this.armCount = arms;
-		this.tentacleAmount = tentacleAmount;
+		this.tentacleAmount = tentacleCount;
 		this.hasBloop = hasBloop;
 	}
 	
