@@ -52,7 +52,28 @@ public class MonsterController
 		}
 		else
 		{
-			System.out.println("OK, now ave this many arms " + currentMonster.getarmCount());
+			System.out.println("OK, now I have this many arms " + currentMonster.getarmCount());
+		}
+		
+		System.out.println("How many eyes would you like to eat?");
+		int eyeEat = myScanner.nextInt();
+		
+		if (eyeEat == 0)
+		{
+			System.out.println("No eyes today? ");
+		}
+		else if(eyeEat < 0)
+		{
+			System.out.println("You can't eat negative amounts!" );
+		}
+		else if (eyeEat - currentMonster.getEyeCount() > 0)
+		{
+			System.out.println("haha DUMB");
+		}
+		else
+		{
+			currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeEat);
+			System.out.println("Now I have " + currentMonster.getEyeCount());
 		}
 		myScanner.close();
 		
