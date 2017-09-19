@@ -2,9 +2,16 @@ package monster.controller;
 
 import monster.model.MarshmallowMonster;
 import java.util.Scanner;
+import monster.view.MonsterDisplay;
 
 public class MonsterController
 {
+	private MonsterDisplay popup;
+	
+	public MonsterController()
+	{
+		popup = new MonsterDisplay();
+	}
 
 	
 	public void start()
@@ -75,6 +82,24 @@ public class MonsterController
 			currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeEat);
 			System.out.println("Now I have " + currentMonster.getEyeCount());
 		}
+
+		System.out.println("How many tentacles do you want to eat? I have " + currentMonster.getTentacleAmount());
+		double food = myScanner.nextDouble();
+		
+		if(food == currentMonster.getTentacleAmount())
+		{
+			System.out.println("You ate all my tentacles!!!");
+		}
+		else
+		{
+			System.out.println("More likely");
+		}
+		
+		popup.displayText("Hi there ready to play???");
+		String answer = popup.getResponse("What is the air speed of a coconut laden swallow?");
+		System.out.println(answer);
+		
+		
 		myScanner.close();
 		
 	}
