@@ -34,6 +34,26 @@ public class MonsterController
 		currentMonster.setTentacleAmount(currentMonster.getTentacleAmount() - Tentacleconsumed);
 		System.out.println(currentMonster);
 		
+		System.out.println("How many arms are you interested in eating?, I have "  + currentMonster.getarmCount());
+		//consumed = myScanner.nextInt();
+		int armEat = myScanner.nextInt();
+		
+		if (armEat == 0)
+		{
+			System.out.println("Not hungry?  so sad.....");
+		}
+		else if(armEat < 0)
+		{
+			System.out.println("Math is hard for you- it's impossible to eat a negative amount");
+		}
+		else if(armEat - currentMonster.getarmCount() > 0)
+		{
+			System.out.println("You are not allowed to eat more than exist on me :(");
+		}
+		else
+		{
+			System.out.println("OK, now ave this many arms " + currentMonster.getarmCount());
+		}
 		myScanner.close();
 		
 	}
