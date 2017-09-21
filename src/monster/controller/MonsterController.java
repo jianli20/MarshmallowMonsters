@@ -8,11 +8,13 @@ public class MonsterController
 {
 	private MonsterDisplay popup;
 	
+	// Created method
 	public MonsterController()
 	{
 		popup = new MonsterDisplay();
 	}
 
+	// Beginning pop ups
 	public void start()
 	{
 		MarshmallowMonster basic = new MarshmallowMonster();
@@ -30,11 +32,11 @@ public class MonsterController
 		interactWithMonster(Jimmothy);
 	}
 	
+	// Methods used to interact with monster, gets user input
 	private void interactWithMonster(MarshmallowMonster currentMonster)
 
 	{
 		Scanner myScanner = new Scanner(System.in);
-//		System.out.println(currentMonster.getName() + " wants to know how many eyes you want to eat, please type in how many ");
 		int consumed =0;
 		String response = popup.getResponse(currentMonster.getName() + " wants to know how many eyes you want to eat, please type in how many");
 		
@@ -42,46 +44,50 @@ public class MonsterController
 		{
 			consumed = Integer.parseInt(response);
 		}
-		
-//		int consumed = myScanner.nextInt();
-		currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
-//		System.out.println(currentMonster);		
-//		System.out.println("How many arms are you interested in eating?, I have "  + currentMonster.getarmCount());
-		//consumed = myScanner.nextInt();
-		
-		popup.displayText(currentMonster.toString());
-		popup.getResponse(currentMonster.getName() + " How many arms are you interested in eating?, I have "  + currentMonster.getarmCount());
-		
-//		int armEat = myScanner.nextInt();
-		int armEat = 0;
-		if(isValidInteger(response))
+		else if(consumed < 0)
 		{
-			consumed = Integer.parseInt(response);
-		}
-		
-		if (armEat == 0)
-		{
-//			System.out.println("Not hungry?  so sad.....");
-			popup.displayText("Not hungry?   so sad.....");
-		}
-		else if(armEat < 0)
-		{
-//			System.out.println("Math is hard for you- it's impossible to eat a negative amount");
 			popup.displayText("Math is hard for you- it's impossible to eat a negative amount");
 		}
-		else if(armEat - currentMonster.getarmCount() > 0)
+		else if(consumed > currentMonster.getEyeCount())
 		{
-//			System.out.println("You are not allowed to eat more than exist on me :(");
 			popup.displayText("You are not allowed to eat more than exist on me :(");
 		}
 		else
 		{
-//			System.out.println("OK, now I have this many arms " + currentMonster.getarmCount());
+			popup.displayText("Ok, now I have this many arms " + currentMonster.getEyeCount());
+		}
+		
+//		int consumed = myScanner.nextInt();
+		currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
+		
+		popup.displayText(currentMonster.toString());
+		popup.getResponse(currentMonster.getName() + " says how many arms are you interested in eating?, I have "  + currentMonster.getarmCount());
+		
+		int armEat = 0;
+		if(isValidInteger(response))
+		{
+			armEat = Integer.parseInt(response);
+		}
+		
+		if (armEat == 0)
+		{
+			popup.displayText("Not hungry?   so sad.....");
+		}
+		else if(armEat < 0)
+		{
+			popup.displayText("Math is hard for you- it's impossible to eat a negative amount");
+		}
+		else if(armEat > currentMonster.getarmCount())
+		{
+			popup.displayText("You are not allowed to eat more than exist on me :(");
+		}
+		else
+		{
 			popup.displayText("Ok, now I have this many arms " + currentMonster.getarmCount());
 		}
 		
 		double food = 0.0;
-		String tentacleResponse = popup.getResponse("");
+		String tentacleResponse = popup.getResponse("How many tentacles are you intested in eating?, I have " + currentMonster.getTentacleAmount());
 		if(isValidDouble(tentacleResponse))
 		{
 			food = Double.parseDouble(tentacleResponse);
@@ -91,16 +97,12 @@ public class MonsterController
 			popup.displayText("You ate all my tentacles!");
 		}
 		
-		popup.displayText("Hi there ready to play???");
-		String answer1 = popup.getResponse("What is the air speed of a coconut laden swallow?");
-		System.out.println(answer1);
-		
-		
+			
 		myScanner.close();
 		
 	}
 
-	//Helper methods
+	// Helper methods
 	private boolean isValidInteger(String sample)
 	{
 		boolean valid = false;
@@ -118,6 +120,7 @@ public class MonsterController
 		return valid;
 	}
 
+	// Helper methods for double values
 	private boolean isValidDouble(String sampleDouble)
 	{
 		boolean valid = false;
@@ -134,7 +137,7 @@ public class MonsterController
 		return valid;
 	}
 
-
+	// Helper methods for boolean values
 	private boolean isValidBoolean(String sampleBoolean)
 	{
 		boolean valid = false;

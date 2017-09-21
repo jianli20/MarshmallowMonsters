@@ -15,6 +15,7 @@ public class MarshmallowMonster
 		//initializes everything to 0, false or null.
 	}
 	
+	// Declared variables
 	public MarshmallowMonster(String name, int eyeCount, int arms, double tentacleCount, boolean hasBloop)
 	{
 		this.name = name;
@@ -24,6 +25,7 @@ public class MarshmallowMonster
 		this.hasBloop = hasBloop;
 	}
 	
+	// Description method
 	public String toString()
 	{
 		String description = "I am a monster, my name is " + name + ", I have " + eyeCount + " eyes and only " ;
@@ -32,7 +34,7 @@ public class MarshmallowMonster
 		return description;
 	}
 			
-		
+	// Getters and Setters
 		public String getName()
 		{
 			return name;
