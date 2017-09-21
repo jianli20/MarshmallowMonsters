@@ -25,7 +25,7 @@ public class MarshmallowMonster
 		this.hasBloop = hasBloop;
 	}
 	
-	// Description method
+	// Constructor, creates parameters
 	public String toString()
 	{
 		String description = "I am a monster, my name is " + name + ", I have " + eyeCount + " eyes and only " ;
