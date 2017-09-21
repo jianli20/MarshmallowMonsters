@@ -44,6 +44,11 @@ public class MonsterController
 		{
 			consumed = Integer.parseInt(response);
 		}
+		
+		if(consumed == 0)
+		{
+			popup.displayText("Math is hard for you- it's impossible to eat a negative amount");
+		}
 		else if(consumed < 0)
 		{
 			popup.displayText("Math is hard for you- it's impossible to eat a negative amount");
