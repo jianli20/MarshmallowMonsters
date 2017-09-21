@@ -17,12 +17,16 @@ public class MonsterController
 	public void start()
 	{
 		MarshmallowMonster basic = new MarshmallowMonster();
-		System.out.println(basic);
+//		System.out.println(basic);
+		popup.displayText(basic.toString());
 		MarshmallowMonster Jimmothy = new MarshmallowMonster("Silly Jimmothy Monster", 8, 4, .5, false);
-		System.out.println(Jimmothy);
-		System.out.println("I am feeling hungry, I am going to eat one of Jimmothy's arms");
+//		System.out.println(Jimmothy);
+		popup.displayText(Jimmothy.toString());
+//		System.out.println("I am feeling hungry, I am going to eat one of Jimmothy's arms");
+		popup.displayText("I am feeling hungry, I am going to eat one of Jimmothy's arms");
 		Jimmothy.setarmCount(Jimmothy.getarmCount() - 1);
-		System.out.println(Jimmothy);
+//		System.out.println(Jimmothy);
+		popup.displayText(Jimmothy.toString());
 		
 		interactWithMonster(Jimmothy);
 	}
