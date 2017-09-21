@@ -135,6 +135,21 @@ public class MonsterController
 	}
 
 
+	private boolean isValidBoolean(String sampleBoolean)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Boolean.parseBoolean(sampleBoolean);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("Type in a boolean value" + sampleBoolean + " does not count.");
+		}
+		return valid;
+	}
 }
 
 
