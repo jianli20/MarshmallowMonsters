@@ -24,6 +24,10 @@ public class MonsterController
 //			count +=2;
 //		}
 		
+//		for(int loop = 0; loop < 10; loop +=1)
+//		{
+//			popup.displayText("This is loop number # " + (loop + 1) + " of 10.");
+//		}
 		
 		
 		
