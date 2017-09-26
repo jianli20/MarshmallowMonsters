@@ -34,7 +34,7 @@ public class MonsterController
 		MarshmallowMonster basic = new MarshmallowMonster();
 //		System.out.println(basic);
 		popup.displayText(basic.toString());
-		MarshmallowMonster Jimmothy = new MarshmallowMonster("Silly Jimmothy Monster", 8, 4, .5, false);
+		MarshmallowMonster Jimmothy = new MarshmallowMonster("Jimmothy Monster", 8, 4, 1.5, false);
 //		System.out.println(Jimmothy);
 		popup.displayText(Jimmothy.toString());
 //		System.out.println("I am feeling hungry, I am going to eat one of Jimmothy's arms");
@@ -61,10 +61,10 @@ public class MonsterController
 		}
 		
 		
-//		if(isValidInteger(response))
-//		{
+		if(isValidInteger(response))
+		{
 			consumed = Integer.parseInt(response);
-//		}
+		}
 		
 		if(consumed == 0)
 		{
@@ -72,48 +72,63 @@ public class MonsterController
 		}
 		else if(consumed < 0)
 		{
-			popup.displayText("Math is hard for you- it's impossible to eat a negative amount");
+			popup.displayText("Math is hard for you- it's impossible to eat a negative amount  No eating anymore.");
 		}
 		else if(consumed > currentMonster.getEyeCount())
 		{
-			popup.displayText("You are not allowed to eat more than exist on me :(");
+			popup.displayText("You are not allowed to eat more than exist on me :(. No eating anymore.");
 		}
 		else
 		{
+			currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
 			popup.displayText("Ok, now I have this many arms " + currentMonster.getEyeCount());
 		}
 		
 //		int consumed = myScanner.nextInt();
-		currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
 		
 		popup.displayText(currentMonster.toString());
 		popup.getResponse(currentMonster.getName() + " says how many arms are you interested in eating?, I have "  + currentMonster.getarmCount());
 		
 		int armEat = 0;
+		
+		while(!isValidInteger(response))
+		{
+			popup.displayText("Wrong. Do better.");
+			response = popup.getResponse("Type in a integer value!");
+		}
+		
 		if(isValidInteger(response))
 		{
 			armEat = Integer.parseInt(response);
 		}
-		
+	
 		if (armEat == 0)
 		{
 			popup.displayText("Not hungry?   so sad.....");
 		}
 		else if(armEat < 0)
 		{
-			popup.displayText("Math is hard for you- it's impossible to eat a negative amount");
+			popup.displayText("Math is hard for you- it's impossible to eat a negative amount. No eating anymore.");
 		}
 		else if(armEat > currentMonster.getarmCount())
 		{
-			popup.displayText("You are not allowed to eat more than exist on me :(");
+			popup.displayText("You are not allowed to eat more than exist on me :(. No eating anymore.");
 		}
 		else
 		{
-			popup.displayText("Ok, now I have this many arms " + currentMonster.getarmCount());
+			currentMonster.setarmCount(currentMonster.getarmCount() - consumed);
+			popup.displayText("Ok, now I have this many arms: " + currentMonster.getarmCount());
 		}
 		
 		double food = 0.0;
 		String tentacleResponse = popup.getResponse("How many tentacles are you intested in eating?, I have " + currentMonster.getTentacleAmount());
+		
+		while(!isValidInteger(response))
+		{
+			popup.displayText("Wrong. Do better.");
+			response = popup.getResponse("Type in a integer value!");
+		}
+		
 		if(isValidDouble(tentacleResponse))
 		{
 			food = Double.parseDouble(tentacleResponse);
@@ -121,6 +136,11 @@ public class MonsterController
 		if(food == currentMonster.getTentacleAmount())
 		{
 			popup.displayText("You ate all my tentacles!");
+		}
+		else
+		{
+			currentMonster.setTentacleAmount(currentMonster.getTentacleAmount() - consumed);
+			popup.displayText("Ok, Now I have this many tentacles: " + currentMonster.getTentacleAmount());
 		}
 		
 			
