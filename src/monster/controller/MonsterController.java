@@ -54,14 +54,21 @@ public class MonsterController
 		int consumed =0;
 		String response = popup.getResponse(currentMonster.getName() + " wants to know how many eyes you want to eat, please type in how many");
 		
-		if(isValidInteger(response))
+		while(!isValidInteger(response))
 		{
-			consumed = Integer.parseInt(response);
+			popup.displayText("Wrong. Do better.");
+			response = popup.getResponse("Type in a integer value!");
 		}
+		
+		
+//		if(isValidInteger(response))
+//		{
+			consumed = Integer.parseInt(response);
+//		}
 		
 		if(consumed == 0)
 		{
-			popup.displayText("Math is hard for you- it's impossible to eat a negative amount");
+			popup.displayText("Not hungry?");
 		}
 		else if(consumed < 0)
 		{
