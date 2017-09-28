@@ -1,17 +1,22 @@
 package monster.controller;
 
 import monster.model.MarshmallowMonster;
-import java.util.Scanner;
+import java.util.List;
 import monster.view.MonsterDisplay;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MonsterController
 {
 	private MonsterDisplay popup;
+	private List<MarshmallowMonster> monsterList;
 	
+
 	// Created method
 	public MonsterController()
 	{
 		popup = new MonsterDisplay();
+		monsterList = new ArrayList<MarshmallowMonster>();
 	}
 
 	// Beginning pop ups
@@ -42,6 +47,10 @@ public class MonsterController
 		Jimmothy.setarmCount(Jimmothy.getarmCount() - 1);
 //		System.out.println(Jimmothy);
 		popup.displayText(Jimmothy.toString());
+		
+		monsterList.add(basic);
+		monsterList.add(Jimmothy);
+
 		
 		interactWithMonster(Jimmothy);
 	}
@@ -141,7 +150,7 @@ public class MonsterController
 		{
 			currentMonster.setTentacleAmount(currentMonster.getTentacleAmount() - consumed);
 			popup.displayText("Ok, Now I have this many tentacles: " + currentMonster.getTentacleAmount());
-		}
+		} 
 		
 			
 		myScanner.close();
